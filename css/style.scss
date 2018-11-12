@@ -1,0 +1,583 @@
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/variables";
+@import "./base/mixins";
+
+* {
+  font-family: $primary-font;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 940px;
+  min-width: 300px;
+  width: 96%;
+}
+
+img:not(.logo) {
+  @include responsive;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  padding-top: 70px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.btn {
+  border: 1px solid $lightgrey;
+  border-radius: 12%;
+  color: $lightgrey;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  padding: 0 8px;
+  transition: all 0.8s;
+
+  &.active,
+  &:hover {
+    border-color: $white;
+    color: $white;
+  }
+
+  &.btn--round {
+    border-radius: 50%;
+    font-family: icons;
+    font-size: 16px;
+    font-weight: 500;
+    height: 30px;
+    padding: 0 3px;
+
+    &:hover {
+      background-color: $lightgrey;
+      color: $white;
+      font-weight: 500;
+      transform: scale(1.2);
+    }
+  }
+}
+
+.zone1 {
+  background-color: $darkgrey;
+  border-bottom: 5px solid $bordergrey;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    position: relative;
+
+    .cheeseburger {
+      display: none;
+      position: absolute;
+      right: -30px;
+      top: 20px;
+
+      span {
+        background-color: white;
+        border-bottom: 3px solid white;
+        display: block;
+        margin-top: 10px;
+        width: 40px;
+      }
+    }
+
+    > a {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 75%;
+
+    > li {
+      margin-right: 37px;
+      position: relative;
+    }
+
+    a {
+      color: $white;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      &.active,
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+
+  nav li + li:nth-child(-n + 4)::after {
+    bottom: 1px;
+    color: #494e62;
+    content: ".";
+    font-size: 12px;
+    font-weight: 900;
+    left: -37px;
+    padding: 0 17px;
+    position: absolute;
+  }
+
+  nav li + li:nth-child(5)::before {
+    bottom: 1px;
+    color: #494e62;
+    content: ".";
+    font-size: 12px;
+    font-weight: 900;
+    left: -37px;
+    padding: 0 17px;
+    position: absolute;
+  }
+}
+
+.slider {
+  background-color: $imgbgc;
+  border-bottom: 5px solid $borderred;
+
+  .container {
+    align-content: center;
+    display: block;
+    position: relative;
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    a#left {
+      background: url("../images/arrows.png") 0 0;
+      bottom: 50%;
+      height: 27px;
+      position: absolute;
+      width: 16px;
+    }
+
+    a#right {
+      background: url("../images/arrows.png") -16px 0;
+      bottom: 50%;
+      height: 27px;
+      position: absolute;
+      right: 0;
+      width: 16px;
+    }
+  }
+}
+
+.services {
+  background-color: $white;
+  border-bottom: 5px solid $borderwhite;
+  padding-bottom: 30px;
+
+  .container {
+    position: relative;
+  }
+
+  h1,
+  h2,
+  p {
+    color: $lightgrey;
+    padding-bottom: 15px;
+  }
+}
+
+.flexart {
+  @include make-col(3, 20px);
+  display: flex;
+
+  h2,
+  p {
+    margin-left: 30px;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 21.5px;
+  }
+
+  article {
+    padding-left: 60px;
+    position: relative;
+  }
+
+  article::before {
+    border: 2px solid $lightgrey;
+    border-radius: 50%;
+    color: $lightgrey;
+    font-family: icons;
+    font-size: 35px;
+    left: 1%;
+    padding: 12px;
+    position: absolute;
+  }
+
+  article:nth-child(1) {
+    &::before {
+      content: "\e801";
+    }
+  }
+
+  article:nth-child(2) {
+    &::before {
+      content: "\e807";
+    }
+  }
+
+  article:nth-child(3) {
+    &::before {
+      content: "\e808";
+    }
+  }
+
+  article:nth-child(4) {
+    &::before {
+      content: "\e805";
+    }
+  }
+
+  article:nth-child(5) {
+    &::before {
+      content: "\e806";
+    }
+  }
+
+  article:nth-child(6) {
+    &::before {
+      content: "\e803";
+    }
+  }
+}
+
+.portfolio {
+  background-color: $darkgrey;
+  border-bottom: 5px solid $bordergrey;
+
+  h1,
+  h2,
+  p {
+    color: $lightgrey;
+  }
+}
+
+.cols4 {
+  @include make-col(4, 20px);
+  display: flex;
+  margin-top: 15px;
+  padding-bottom: 50px;
+
+  a {
+    border: 5px solid transparent;
+    display: block;
+    position: relative;
+    &:hover {
+      border: 5px solid #aebcbc;
+      transform: scale(1.1);
+      &::after {
+        color: #aebcbc;
+        content: "\e804";
+        font-family: icons;
+        font-size: 72px;
+        left: 50%;
+        margin-left: -30px;
+        margin-top: -30px;
+        opacity: 1;
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+      }
+      &::before {
+        background-color: rgba($color: #0c0c0c, $alpha: 0.3);
+        content: "";
+        height: 100%;
+        opacity: 1;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.directory {
+  background-color: $white;
+  border-bottom: 5px solid $borderwhite;
+  padding-bottom: 30px;
+
+  h1,
+  h2,
+  p {
+    color: $lightgrey;
+    padding-bottom: 15px;
+  }
+
+  .cols3 {
+    @include make-col(3, 20px);
+    display: flex;
+    margin-top: 50px;
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 21.5px;
+    }
+
+    &:hover {
+      border-radius: 50%;
+    }
+  }
+}
+
+.quote {
+  background-color: $red;
+  border-bottom: 5px solid $borderred;
+  padding-bottom: 50px;
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+
+    h1,
+    h2,
+    p {
+      color: $lightred;
+    }
+
+    p {
+      margin-bottom: 50px;
+    }
+  }
+
+  .form {
+    display: flex;
+
+    form {
+      margin-right: auto;
+      width: 70%;
+    }
+
+    aside {
+      width: 28%;
+    }
+
+    > p {
+      line-height: 30px;
+    }
+
+    textarea,
+    input {
+      background-color: $darkred;
+      border: 2px solid $darkred;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: $lightred;
+      font-size: 12px;
+      font-weight: 400;
+      margin: 8px 0;
+      outline: none;
+      padding: 12px 20px;
+      resize: none;
+      width: 100%;
+    }
+
+    input::placeholder {
+      color: $lightred;
+    }
+  }
+}
+
+textarea {
+  height: 300px;
+}
+
+aside {
+  > h2 {
+    margin-bottom: 18px;
+  }
+
+  > p {
+    font-size: 12px;
+  }
+
+  a {
+    color: $lightred;
+    display: block;
+    font-size: 12px;
+    margin-bottom: 13px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  a::before {
+    color: $lightred;
+    font-family: icons;
+    font-size: 15px;
+    left: -7%;
+    margin-right: 15px;
+    padding: 0 16px;
+    position: absolute;
+  }
+
+  .info ul {
+    li:nth-child(1) a {
+      &::before {
+        content: "\e809"+" ";
+      }
+    }
+
+    li:nth-child(2) a {
+      &::before {
+        content: "\e80a"+" ";
+      }
+    }
+
+    li:nth-child(3) a {
+      &::before {
+        content: "\e80b"+" ";
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $darkgrey;
+
+  .container {
+    display: flex;
+    padding-bottom: 0;
+    padding-top: 30px;
+  }
+
+  p {
+    color: $lightgrey;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    width: 75%;
+  }
+
+  .flexart {
+    @include make-col(2, 20px);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .zone1 .menu {
+    display: none;
+  }
+
+  .zone1 .container .cheeseburger {
+    display: block;
+  }
+
+  .flexart {
+    @include make-col(1, 20px);
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .cols4 {
+    @include make-col(3, 10px);
+  }
+
+  .quote .container .form {
+    display: block;
+    width: 100%;
+  }
+  .quote .container .form form {
+    width: 100%;
+  }
+  .quote .container aside {
+    width: 100%;
+  }
+
+  .quote .container input,
+  textarea {
+    width: 100%;
+  }
+
+  aside a::before {
+    color: #f0d8d9;
+    font-family: icons;
+    font-size: 15px;
+    left: 0;
+    padding-left: 0;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .cols4 {
+    @include make-col(2, 20px);
+    margin-bottom: 20px;
+  }
+
+  .directory .container .cols3 {
+    justify-content: center;
+    @include make-col(2, 30px);
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .directory .container .cols3 {
+    justify-content: center;
+    @include make-col(1, 30px);
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .portfolio .container .cols4 {
+    @include make-col(1, 20px);
+
+    > *:nth-child(n + 5) {
+      display: none;
+    }
+  }
+}
